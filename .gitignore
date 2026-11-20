@@ -1,0 +1,40 @@
+# ===== IntelliJ IDEA =====
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# ===== Maven =====
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# ===== Java =====
+*.class
+*.jar
+*.war
+*.ear
+hs_err_pid*
+replay_pid*
+
+# ===== 本地环境/密钥（绝不提交）=====
+*.properties.local
+application-local.yml
+application-local.properties
+.env
+*.pem
+*.key
+
+# ===== 操作系统 =====
+Thumbs.db
+.DS_Store
+
+# ===== 日志 =====
+*.log
+logs/
