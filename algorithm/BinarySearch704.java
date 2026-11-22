@@ -4,15 +4,14 @@ public class BinarySearch704 {
         int[] nums1 = {1,3,5,7,9};
         int[] nums2 = {5};
         int[] nums3 = {};
-        search(nums1,5);
-        search(nums1,1);
-        search(nums1,9);
-        search(nums1,0);
-        search(nums1,10);
-        search(nums2,5);
-        search(nums2,3);
-        search(nums3,1);
-
+        check("case1", nums1, 5, 2);
+        check("case2", nums1,1, 0);
+        check("case3", nums1,9,4);
+        check("case4", nums1,0,-1);
+        check("case5", nums1,10,-1);
+        check("case6", nums2,5,0);
+        check("case7", nums2,3,-1);
+        check("case8", nums3,1,-1);
     }
     public static int search(int[] nums, int target) {
         int left = 0;
@@ -31,6 +30,11 @@ public class BinarySearch704 {
     }
 
     public static void check(String name, int[] nums, int target, int expected) {
-        // 这里先空着
+        int result = search(nums, target);
+        if (result == expected) {
+            System.out.println(name + ":" + "pass");
+        } else {
+            System.out.println(name + ":" + "fail" + "  | target=" + target + " expected=" + expected + " result=" + result);
+        }
     }
 }
