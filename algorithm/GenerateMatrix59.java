@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class GenerateMatrix59 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("打印n×n顺时针螺旋排列的矩阵，请输入n的值：");
+        int n = sc.nextInt();
+        int[][] matrix = generateMatrix(n);
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+    public static int[][] generateMatrix(int n) {
+        int endNum = n * n;
+        int curNum = 1;
+        int row = 0, col = 0;
+        int[][] matrix = new int[n][n];
+        int[][] directions = {{0, 1},{1, 0},{0, -1},{-1, 0}};
+        int directionIndex = 0;
+        while(curNum <= endNum) {
+            matrix[row][col] = curNum;
+            curNum++;
+            int nextRow = row + directions[directionIndex][0];
+            int nextCol = col + directions[directionIndex][1];
+            if(nextRow < 0 || nextRow >= n || nextCol < 0 || nextCol >= n || matrix[nextRow][nextCol] != 0) {
+                directionIndex = (directionIndex + 1) % 4;
+            }
+            row += directions[directionIndex][0];
+            col += directions[directionIndex][1];
+        }
+        return matrix;
+    }
+}
